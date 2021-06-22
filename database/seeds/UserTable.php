@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class UserTable extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('users')->insert(
+            'id' => '1',
+            'name' => 'テストタロウ',
+            'email' => 'test@test.test',
+            'email_verified_at' => now(),
+            'password' => Hash::make('testtest'),
+        ]);
+        factory(User::class)->create([
+            'id' => '2',
+            'name' => 'テストジロウ',
+            'email' => 'test2@test.test',
+            'email_verified_at' => now(),
+            'password' => Hash::make('testtest'),
+        ]);
+        factory(User::class)->create([
+            'id' => '3',
+            'name' => 'テストサンタ',
+            'email' => 'test3@test.test',
+            'email_verified_at' => now(),
+            'password' => Hash::make('testtest'),
+        ]);
+    }
+}
